@@ -1,0 +1,65 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }
+    %meta{ name: "description", content: "" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+    %meta{ name: "keywords", content: "" }
+
+    %title Lurn
+
+    <!-- Styles -->
+    %link{ href: "./assets/css/theDocs.all.css", rel: "stylesheet" }
+    %link{ href: "./assets/css/custom.css", rel: "stylesheet" }
+
+    <!-- Fonts -->
+    %link{ href: "http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400", rel: 'stylesheet', type: 'text/css' }
+
+    <!-- Favicons -->
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon.png" }
+    %link{ rel: "icon", href: "assets/img/favicon.png" }
+
+  %body
+
+    %header.site-header.sticky{ style: "padding-top: 80px;" }
+
+      <!-- Top navbar & branding -->
+      %nav.navbar.navbar-default
+        .container
+
+          <!-- Toggle buttons and brand -->
+          .navbar-header
+            %button.navbar-toggle{ type: "button", "zdata-toggle": "collapse", "dzata-target":"#navbar", "aria-expanded": "true", "aria-controls": "navbar" }
+              %span.glyphicon.glyphicon-option-vertical
+
+            %a.navbar-brand{ href: "index.html" }
+              %img{ src: "assets/img/logo.png", alt: "lurn" }
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          %div#navbar.navbar-collapse.collapse{ "aria-expanded": "true", role: "banner" }
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                %a{ href: "/docs", target: "_blank" }
+                  API Docs
+              %li
+                %a{ href: "https://www.github.com/dansbits/lurn", target: "_blank" }
+                  Source Code
+          <!-- END Top navbar -->
+
+      <!-- END Top navbar & branding -->
+
+    {{ content }}
+
+    %footer.site-footer
+      .container
+        %a#scroll-up{ href: "#" }
+          %i.fa.fa-angle-up
+        .row
+          .col-md-6.col-sm-6
+            %p Copyright © 2018. All right reserved
+          .col-md-6.col-sm-6
+            %ul.footer-menu
+              %li
+                %a{ href: "https://www.github.com/dansbits/lurn", target: "_blank" } Source Code
