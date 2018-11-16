@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Lurn::NaiveBayes::MultinomialNaiveBayes
+  
+    &mdash; Documentation by YARD 0.9.16
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Lurn::NaiveBayes::MultinomialNaiveBayes";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Lurn.html" title="Lurn (module)">Lurn</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../NaiveBayes.html" title="Lurn::NaiveBayes (module)">NaiveBayes</a></span></span>
+     &raquo; 
+    <span class="title">MultinomialNaiveBayes</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Lurn::NaiveBayes::MultinomialNaiveBayes
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Base.html" title="Lurn::NaiveBayes::Base (class)">Base</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Base.html" title="Lurn::NaiveBayes::Base (class)">Base</a></span></li>
+          
+            <li class="next">Lurn::NaiveBayes::MultinomialNaiveBayes</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/lurn/naive_bayes/multinomial_naive_bayes.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prior_probabilities-instance_method" title="#prior_probabilities (instance method)">#<strong>prior_probabilities</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute prior_probabilities.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#probability_matrix-instance_method" title="#probability_matrix (instance method)">#<strong>probability_matrix</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute probability_matrix.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unique_labels-instance_method" title="#unique_labels (instance method)">#<strong>unique_labels</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute unique_labels.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(vectors, labels)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; MultinomialNaiveBayes </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of MultinomialNaiveBayes.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Base.html" title="Lurn::NaiveBayes::Base (class)">Base</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Base.html#max_class-instance_method" title="Lurn::NaiveBayes::Base#max_class (method)">#max_class</a></span>, <span class='object_link'><a href="Base.html#max_probability-instance_method" title="Lurn::NaiveBayes::Base#max_probability (method)">#max_probability</a></span>, <span class='object_link'><a href="Base.html#predict_log_probabilities-instance_method" title="Lurn::NaiveBayes::Base#predict_log_probabilities (method)">#predict_log_probabilities</a></span>, <span class='object_link'><a href="Base.html#predict_probabilities-instance_method" title="Lurn::NaiveBayes::Base#predict_probabilities (method)">#predict_probabilities</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Lurn::NaiveBayes::MultinomialNaiveBayes (class)">MultinomialNaiveBayes</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of MultinomialNaiveBayes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lurn/naive_bayes/multinomial_naive_bayes.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="prior_probabilities=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="prior_probabilities-instance_method">
+  
+    #<strong>prior_probabilities</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute prior_probabilities</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lurn/naive_bayes/multinomial_naive_bayes.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prior_probabilities'>prior_probabilities</span>
+  <span class='ivar'>@prior_probabilities</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="probability_matrix=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="probability_matrix-instance_method">
+  
+    #<strong>probability_matrix</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute probability_matrix</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lurn/naive_bayes/multinomial_naive_bayes.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_probability_matrix'>probability_matrix</span>
+  <span class='ivar'>@probability_matrix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="unique_labels=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="unique_labels-instance_method">
+  
+    #<strong>unique_labels</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute unique_labels</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lurn/naive_bayes/multinomial_naive_bayes.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unique_labels'>unique_labels</span>
+  <span class='ivar'>@unique_labels</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fit-instance_method">
+  
+    #<strong>fit</strong>(vectors, labels)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lurn/naive_bayes/multinomial_naive_bayes.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_vectors'>vectors</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vectors'>vectors</span> <span class='op'>=</span> <span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_rows'>rows</span><span class='lparen'>(</span><span class='id identifier rubyid_vectors'>vectors</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@unique_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+  <span class='ivar'>@feature_count</span> <span class='op'>=</span> <span class='id identifier rubyid_vectors'>vectors</span><span class='period'>.</span><span class='id identifier rubyid_column_size'>column_size</span>
+  <span class='id identifier rubyid_count_matrix'>count_matrix</span> <span class='op'>=</span> <span class='id identifier rubyid_build_count_matrix'>build_count_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_vectors'>vectors</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
+  <span class='ivar'>@probability_matrix</span> <span class='op'>=</span> <span class='id identifier rubyid_build_probability_matrix'>build_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_count_matrix'>count_matrix</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
+  <span class='ivar'>@prior_probabilities</span> <span class='op'>=</span> <span class='ivar'>@unique_labels</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_l1'>l1</span><span class='op'>|</span>
+    <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l2'>l2</span><span class='op'>|</span> <span class='id identifier rubyid_l1'>l1</span> <span class='op'>==</span> <span class='id identifier rubyid_l2'>l2</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Oct 20 14:55:35 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>
