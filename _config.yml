@@ -17,8 +17,8 @@ title: Lurn
 email: contact@lurnrb.com
 description: >- # this means to ignore newlines until "baseurl:"
   Lurn - A machine learning gem for ruby
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://lurnrb.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/lurn-docs" # the subpath of your site, e.g. /blog
+url: "https://dansbits.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: twomanydans
 github_username:  dansbits
 
