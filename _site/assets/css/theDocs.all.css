@@ -462,8 +462,9 @@ body[data-spy] {
 ------------------------------------*/
 .site-footer {
   position: relative;
-  background-color: #f5f5f5;
-  color: #777;
+  background-color: #5cc7b2;
+  /* background-color: #f5f5f5; */
+  color: #ffffff;
   padding: 30px 15px;
 }
 
@@ -514,7 +515,7 @@ body[data-spy] {
 }
 
 .footer-menu a {
-  color: rgba(125, 125, 125, 0.7);
+  color: #ffffff;
   font-weight: 500;
   -webkit-transition: .2s ease;
   -o-transition: .2s ease;

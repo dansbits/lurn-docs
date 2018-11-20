@@ -13,3 +13,13 @@
   line-height: 50px;
   border: none;
 }
+
+.get-started-banner {
+  padding-bottom: 65px;
+}
+.get-started-banner h2 { 
+  border: none; 
+  margin-bottom: 0px; 
+}
+
+.bg-light { background-color: #f5f5f5 }
