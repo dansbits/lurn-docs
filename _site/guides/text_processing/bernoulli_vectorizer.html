@@ -60,31 +60,39 @@
   </nav>
   <!-- END Top navbar & branding -->
 </header>
-    <div class="banner home-banner">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>Machine Learning for Ruby</h1>
-      </div>
-    </div>
-  </div>    
-</div>
-<section class="get-started-banner bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center">Get Started</h2>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-6 col-md-offset-3">
-          <pre>gem install lurn</pre>
-      </div>
-    </div>
-  </div>
-</section>
-  
+    <div class="container u-pt-20">
+      <h1 id="bernoulli-vectorizer-word-presence-vectorizer">Bernoulli Vectorizer (word presence vectorizer)</h1>
 
+<p>A bernoulli document model is one that represents a piece of text as an array of boolean values. Each boolean represents the presence (true) or absence (false) of a word in the document.</p>
+
+<p><code class="highlighter-rouge">Lurn::Text::BernoulliVectorizer</code> is intended to make it easy to convert text into Bernoulli vectors.</p>
+
+<h2 id="basic-example">Basic example</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello world'</span><span class="p">,</span> <span class="s1">'hello fred'</span><span class="p">]</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">BernoulliVectorizer</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="c1"># vectorizers must be trained in order to know</span>
+<span class="c1"># what features (words) exist in the data set</span>
+<span class="n">vectorizer</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+
+<span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+<p>The initializer accepts a number of options for configuring how documents are vectorized. A few include:</p>
+<ul>
+  <li>max_df[int]: Excludes words which appear in more than <code class="highlighter-rouge">max_df</code> documents</li>
+  <li>min_df[int]: Excludes words which appear in fewer than <code class="highlighter-rouge">min_df</code> documents</li>
+  <li>strip_stopwords[boolean]: Removes stop words if true</li>
+  <li>stem_words[boolean]: Stems words in the documents if true</li>
+  <li>ngrams[int]: Features will be determined based on groupings of <code class="highlighter-rouge">ngrams</code> consecutive words instead of individual words</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Lurn</span><span class="o">::</span><span class="no">BernoulliVectorizer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">strip_stopwords: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">min_df: </span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+    </div>
     <footer class="site-footer">
   <div class="container">
     <a id="scroll-up">
