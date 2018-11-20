@@ -2,14 +2,14 @@
 .u-mt-20 { margin-top: 20px; }
 
 .home-banner {
-  background-image: url(/lurn-docs/assets/images/banner2_bw.jpg);
+  background-image: url(/assets/images/banner2_bw.jpg);
   background-size: auto;
   background-repeat: repeat;
 }
 
-.home-banner h2 {
-  font-size: 45px;
-  font-weight: 500;
+.home-banner h1 {
+  font-size: 50px;
+  font-weight: 600;
   line-height: 50px;
   border: none;
 }
