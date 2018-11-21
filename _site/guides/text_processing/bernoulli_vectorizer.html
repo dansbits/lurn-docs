@@ -16,15 +16,14 @@
 <link rel="icon" href="assets/img/favicon.png" />
   </head>
   <body>
-    <header class="site-header sticky" style="padding-top: 80px;">
+    <header class="site-header">
   <!-- Top navbar & branding -->
   <nav class="navbar navbar-default">
-    <div class="container">
+    <div class="container-fluid">
       <!-- Toggle buttons and brand -->
       <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle=collapse" data-target="#navbar" aria-expanded="true"
-          aria-controls="navbar">
-          <span class="glyphicon glyphicon-option-vertical"></span>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+          <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand" href="/">
           <img src="/assets/images/logo.png" alt="lurn" />
@@ -32,42 +31,42 @@
       </div>
       <!-- END Toggle buttons and brand -->
       <!-- Top navbar -->
-      <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner" />
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Guides 
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-              <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
-            </ul>
-        </li>
-        <li>
-          <a href="/docs" target="_blank">
-            <i class="fa fa-book"></i> API Docs
-          </a>
-        </li>
-        <li>
-          <a href="https://www.github.com/dansbits/lurn" target="_blank">
-            <i class="fa fa-github fa-3"></i> Source Code
-          </a>
-        </li>
-      </ul>
-    </div>
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" role="banner">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Guides 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="/docs" target="_blank">
+              <i class="fa fa-book"></i> API Docs
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i> Source Code
+            </a>
+          </li>
+        </ul>
+      </div>
     <!-- END Top navbar -->
     </div>
   </nav>
   <!-- END Top navbar & branding -->
 </header>
     <div class="container u-pt-20">
-      <h1 id="bernoulli-vectorizer-word-presence-vectorizer">Bernoulli Vectorizer (word presence vectorizer)</h1>
+      <h2 id="bernoulli-vectorizer-word-presence-vectorizer">Bernoulli Vectorizer (word presence vectorizer)</h2>
 
 <p>A bernoulli document model is one that represents a piece of text as an array of boolean values. Each boolean represents the presence (true) or absence (false) of a word in the document.</p>
 
 <p><code class="highlighter-rouge">Lurn::Text::BernoulliVectorizer</code> is intended to make it easy to convert text into Bernoulli vectors.</p>
 
-<h2 id="basic-example">Basic example</h2>
+<h3 id="basic-example">Basic example</h3>
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello world'</span><span class="p">,</span> <span class="s1">'hello fred'</span><span class="p">]</span>
 
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">BernoulliVectorizer</span><span class="p">.</span><span class="nf">new</span>
@@ -79,7 +78,7 @@
 <span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="configuration">Configuration</h2>
+<h3 id="configuration">Configuration</h3>
 <p>The initializer accepts a number of options for configuring how documents are vectorized. A few include:</p>
 <ul>
   <li>max_df[int]: Excludes words which appear in more than <code class="highlighter-rouge">max_df</code> documents</li>
