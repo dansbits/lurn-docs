@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" /><title>Lurn</title>
+<!-- Styles -->
+<link href="/assets/css/theDocs.all.css" rel="stylesheet" />
+<link href="/assets/css/custom.css" rel="stylesheet" />
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400" rel='stylesheet' type='text/css' />
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <header class="site-header">
+  <!-- Top navbar & branding -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Toggle buttons and brand -->
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/assets/images/logo.png" alt="lurn" />
+        </a>
+      </div>
+      <!-- END Toggle buttons and brand -->
+      <!-- Top navbar -->
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" role="banner">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Guides 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
+                <li><a href="/guides/classifiers/multinomial_naive_bayes">Multinomial Naive Bayes</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="/docs" target="_blank">
+              <i class="fa fa-book"></i> API Docs
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i> Source Code
+            </a>
+          </li>
+        </ul>
+      </div>
+    <!-- END Top navbar -->
+    </div>
+  </nav>
+  <!-- END Top navbar & branding -->
+</header>
+    <div class="container u-pt-20 u-pb-20">
+      <h3 id="multinomial-naive-bayes">Multinomial Naive Bayes</h3>
+<p>Naive bayes is a bayesian model often used for text classification. Multinomial Naive Bayes specifically classifies observations based on variables with a multinomial distribution (a.k.a. numbers).</p>
+
+<p>Below is a simple text classification using Multinomial Naive Bayes in Lurn.</p>
+
+<p>Start with some text documents</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'ruby is a great programming language'</span><span class="p">,</span>
+    <span class="s1">'the giants recently won the world series'</span><span class="p">,</span>
+    <span class="s1">'java is a compiled programming language'</span><span class="p">,</span>
+    <span class="s1">'the jets are a football team'</span>
+  <span class="p">]</span>
+
+  <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">,</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>These documents need to be converted to a multinomial document model (counts of the words). This can be accomplished easily with the
+<code class="highlighter-rouge">WordCountVectorizer</code>.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vectorizer</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">WordCountVectorizer</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">vectorizer</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+<span class="n">vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>With documents now in the expected format the model can be trained by supplying the new vectors along with the original class corresponding
+to each document.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">NaiveBayes</span><span class="o">::</span><span class="no">MultinomialNaiveBayes</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">vectors</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The model is ready to classify a new document.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">new_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">([</span><span class="s1">'programming is fun'</span><span class="p">])</span>
+
+<span class="c1"># get the most probable class for the new document given the training data</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">max_class</span><span class="p">(</span><span class="n">new_vectors</span><span class="p">.</span><span class="nf">first</span><span class="p">)</span>
+
+<span class="c1"># get the probability score for the most probable class</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">max_probability</span><span class="p">(</span><span class="n">new_vectors</span><span class="p">.</span><span class="nf">first</span><span class="p">)</span>
+</code></pre></div></div>
+<p>This is of course a contrived example but shows the general API for Multinomial Naive Bayes. To use this model for a more real-world example you
+should have a deeper understanding of naive bayes. Below are some additional resources for learning more.</p>
+
+<h4 id="additional-resources">Additional Resources</h4>
+<ul>
+  <li><a href="/docs/Lurn/NaiveBayes/MultinomialNaiveBayes.html">API Docs</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Wikipedia: Naive Bayes Classifiers</a></li>
+</ul>
+
+    </div>
+    <footer class="site-footer">
+  <div class="container">
+    <a id="scroll-up">
+      <i class="fa fa-angle-up"></i></a>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <p>Copyright © 2018. All right reserved</p>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <ul class="footer-menu">
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/theDocs.all.js"></script>
+  </body>
+</html>

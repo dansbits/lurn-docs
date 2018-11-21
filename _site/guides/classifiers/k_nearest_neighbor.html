@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" /><title>Lurn</title>
+<!-- Styles -->
+<link href="/assets/css/theDocs.all.css" rel="stylesheet" />
+<link href="/assets/css/custom.css" rel="stylesheet" />
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400" rel='stylesheet' type='text/css' />
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <header class="site-header">
+  <!-- Top navbar & branding -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Toggle buttons and brand -->
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/assets/images/logo.png" alt="lurn" />
+        </a>
+      </div>
+      <!-- END Toggle buttons and brand -->
+      <!-- Top navbar -->
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" role="banner">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Guides 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
+                <li><a href="/guides/classifiers/multinomial_naive_bayes">Multinomial Naive Bayes</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="/docs" target="_blank">
+              <i class="fa fa-book"></i> API Docs
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i> Source Code
+            </a>
+          </li>
+        </ul>
+      </div>
+    <!-- END Top navbar -->
+    </div>
+  </nav>
+  <!-- END Top navbar & branding -->
+</header>
+    <div class="container u-pt-20 u-pb-20">
+      <h3 id="k-nearest-neighbor-classifier">K Nearest Neighbor Classifier</h3>
+<p>K Nearest Neighbor (KNN) Classification is one of the simplest forms of classification
+in the machine learning toolbox. Training data is stored on the model and all
+computation is deferred until the time of prediction. When a new observation
+is provided it calculates the distance between the new observation and all
+training data in an n-dimensional space (where n is the number of variables).
+The predicted class is the most common class among the k closest training records.</p>
+
+<p>Below is a simple example of using KNN Classification in Lurn.</p>
+
+<p>Suppose we have a dataset containing the income, years of college eduction and job title
+for a set of people. We could use this as training data to predict
+people’s job title based on their income and years of eduction.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># years of education  annual income job title</span>
+    <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>                  <span class="mi">50000</span><span class="p">,</span>        <span class="s1">'engineer'</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">6</span><span class="p">,</span>                  <span class="mi">60000</span><span class="p">,</span>        <span class="s1">'scientist'</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>                  <span class="mi">40000</span><span class="p">,</span>        <span class="s1">'engineer'</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">8</span><span class="p">,</span>                  <span class="mi">90000</span><span class="p">,</span>         <span class="s1">'scientist'</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>                  <span class="mi">70000</span><span class="p">,</span>        <span class="s1">'librarian'</span><span class="p">],</span>
+  <span class="p">]</span>
+
+  <span class="c1"># eduction and income</span>
+  <span class="n">predictors</span> <span class="o">=</span> <span class="n">people</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span> <span class="n">person</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span>
+
+  <span class="c1"># extract annual income</span>
+  <span class="n">target_var</span> <span class="o">=</span> <span class="n">people</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">person</span><span class="o">|</span> <span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+</code></pre></div></div>
+
+<p>The model can be trained by passing the predictors and target values to an initialized
+instance of the KNNClassifier model.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># initialize the model with a k of 2</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Neighbors</span><span class="o">::</span><span class="no">KNNClassifier</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+  <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">target_var</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The model can now be used to predict the income of a person given his/her
+age and years of education.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1"># predict the job title of person with 4 years of eduction who make $45,000</span>
+  <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">45000</span><span class="p">])</span>  <span class="c1"># =&gt; engineer</span>
+</code></pre></div></div>
+
+    </div>
+    <footer class="site-footer">
+  <div class="container">
+    <a id="scroll-up">
+      <i class="fa fa-angle-up"></i></a>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <p>Copyright © 2018. All right reserved</p>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <ul class="footer-menu">
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/theDocs.all.js"></script>
+  </body>
+</html>
