@@ -23,6 +23,9 @@
       <!-- Toggle buttons and brand -->
       <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+          <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
           <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand" href="/">
@@ -34,14 +37,9 @@
       <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" role="banner">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Guides 
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
-                <li><a href="/guides/classifiers/multinomial_naive_bayes">Multinomial Naive Bayes</a></li>
-              </ul>
+            <a href="/guides/overview">
+              <i class="fa fa-graduation-cap"></i>
+              Guides</a>
           </li>
           <li>
             <a href="/docs" target="_blank">
@@ -64,7 +62,7 @@
       <div class="row">
         <aside class="col-md-3 col-sm-3 sidebar">
     <ul class="sidenav dropable sticky">
-      <li><a href="index.html">Overview</a></li>
+      <li><a href="/guides/overview" >Overview</a></li>
       <li>
         <a href="#" class="active">Classifiers</a>
         <ul>

@@ -58,27 +58,68 @@
   </nav>
   <!-- END Top navbar & branding -->
 </header>
-    <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+    <div class="container u-pt-20 u-pb-20">
+      <div class="row">
+        <aside class="col-md-3 col-sm-3 sidebar">
+    <ul class="sidenav dropable sticky">
+      <li><a href="/guides/overview" >Overview</a></li>
+      <li>
+        <a href="#" >Classifiers</a>
+        <ul>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" >Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" >Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Regression</a>
+        <ul>
+          <li><a href="/guides/regression/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Text Processing</a>
+        <ul>
+          <li><a href="/guides/text_processing/bernoulli_vectorizer" >Bernoulli Vectorizer</a></li>
+        </ul>
+      </li>
 
-<div class="container">
-  <h1>404</h1>
+    </ul>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+  </aside>
+        <article class="col-md-9 col-sm-9 main-content" role="main">
+          <h3 id="getting-started">Getting Started</h3>
 
+<p>Welcome and thank you for your interest in machine learning in Ruby with lurn. This section of the site is intended
+to help you get familiar with lurn and the algorithms it implements.</p>
+
+<h4 id="installation">Installation</h4>
+<p>Lurn is available through RubyGems and can be installed by:</p>
+
+<p>Running gem install in your console</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install lurn
+</code></pre></div></div>
+
+<p>Adding it to your project’s Gemfile</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem "lurn"
+</code></pre></div></div>
+
+<h4 id="who-are-these-guides-intended-for">Who are these guides intended for?</h4>
+
+<p>The hope for these guides is that they can be useful for those already familiar with machine learning concepts as well
+as those wanting to get started. Each guide contains some explanation of the concepts behind a model or utility in 
+addition to how to use it in lurn.</p>
+
+<h4 id="reporting-issues">Reporting issues</h4>
+
+<p>If you find anything in these guides (or this site) that is unclear, confusing, or wrong please report it by
+opening an issue on the lurn docs github repository.</p>
+
+<p><a href="https://github.com/dansbits/lurn-docs/issues">Submit an issue</a></p>
+
+        </article>
+      </div>
+    </div>
     <footer class="site-footer">
   <div class="container">
     <a id="scroll-up">
