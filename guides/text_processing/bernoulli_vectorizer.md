@@ -4,6 +4,8 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 title: Lurn | Bernoulli Vectorizer
 layout: guides
+active_dropdown: text_processing
+active_guide: bernoulli_vec
 ---
 
 ## Bernoulli Vectorizer (word presence vectorizer)

@@ -4,6 +4,8 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 title: Lurn | Multinomial Naive Bayes
 layout: guides
+active_dropdown: classifiers
+active_guide: multinomial_nb
 ---
 
 ### Multinomial Naive Bayes

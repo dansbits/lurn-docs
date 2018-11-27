@@ -6,7 +6,12 @@
   <body>
     {% include heading.html %}
     <div class="container u-pt-20 u-pb-20">
-      {{ content }}
+      <div class="row">
+        {% include guides_sidebar.html %}
+        <article class="col-md-9 col-sm-9 main-content" role="main">
+          {{ content }}
+        </article>
+      </div>
     </div>
     {% include footer.html %}
   </body>

@@ -4,6 +4,8 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 title: Lurn | K Nearest Neighbor Classifier
 layout: guides
+active_dropdown: classifiers
+active_guide: knn_classifier
 ---
 
 ### K Nearest Neighbor Classifier

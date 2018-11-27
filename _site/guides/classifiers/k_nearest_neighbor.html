@@ -61,7 +61,36 @@
   <!-- END Top navbar & branding -->
 </header>
     <div class="container u-pt-20 u-pb-20">
-      <h3 id="k-nearest-neighbor-classifier">K Nearest Neighbor Classifier</h3>
+      <div class="row">
+        <aside class="col-md-3 col-sm-3 sidebar">
+    <ul class="sidenav dropable sticky">
+      <li><a href="index.html">Overview</a></li>
+      <li>
+        <a href="#" class="active">Classifiers</a>
+        <ul>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" >Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" >Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/k_nearest_neighbor" class="active">K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Regression</a>
+        <ul>
+          <li><a href="/guides/regression/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Text Processing</a>
+        <ul>
+          <li><a href="/guides/text_processing/bernoulli_vectorizer" >Bernoulli Vectorizer</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </aside>
+        <article class="col-md-9 col-sm-9 main-content" role="main">
+          <h3 id="k-nearest-neighbor-classifier">K Nearest Neighbor Classifier</h3>
 <p>K Nearest Neighbor (KNN) Classification is one of the simplest forms of classification
 in the machine learning toolbox. Training data is stored on the model and all
 computation is deferred until the time of prediction. When a new observation
@@ -107,6 +136,8 @@ age and years of education.</p>
   <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">45000</span><span class="p">])</span>  <span class="c1"># =&gt; engineer</span>
 </code></pre></div></div>
 
+        </article>
+      </div>
     </div>
     <footer class="site-footer">
   <div class="container">

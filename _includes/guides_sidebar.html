@@ -1,0 +1,27 @@
+<aside class="col-md-3 col-sm-3 sidebar">
+    <ul class="sidenav dropable sticky">
+      <li><a href="index.html">Overview</a></li>
+      <li>
+        <a href="#" {% if page.active_dropdown == 'classifiers' %}class="active"{% endif %}>Classifiers</a>
+        <ul>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" {% if page.active_guide == 'bernoulli_nb' %}class="active"{% endif %}>Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" {% if page.active_guide == 'multinomial_nb' %}class="active"{% endif %}>Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/k_nearest_neighbor" {% if page.active_guide == 'knn_classifier' %}class="active"{% endif %}>K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" {% if page.active_dropdown == 'regression' %}class="active"{% endif %}>Regression</a>
+        <ul>
+          <li><a href="/guides/regression/k_nearest_neighbor" {% if page.active_guide == 'knn_regression' %}class="active"{% endif %}>K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" {% if page.active_dropdown == 'text_processing' %}class="active"{% endif %}>Text Processing</a>
+        <ul>
+          <li><a href="/guides/text_processing/bernoulli_vectorizer" {% if page.active_guide == 'bernoulli_vec' %}class="active"{% endif %}>Bernoulli Vectorizer</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </aside>

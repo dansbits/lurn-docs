@@ -68,8 +68,8 @@
       <li>
         <a href="#" class="active">Classifiers</a>
         <ul>
-          <li><a href="/guides/classifiers/bernoulli_naive_bayes" >Bernoulli Naive Bayes</a></li>
-          <li><a href="/guides/classifiers/multinomial_naive_bayes" class="active">Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" class="active">Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" >Multinomial Naive Bayes</a></li>
           <li><a href="/guides/classifiers/k_nearest_neighbor" >K Nearest Neighbor</a></li>
         </ul>
       </li>
@@ -90,38 +90,36 @@
 
   </aside>
         <article class="col-md-9 col-sm-9 main-content" role="main">
-          <h3 id="multinomial-naive-bayes">Multinomial Naive Bayes</h3>
-<p>Naive bayes is a bayesian model often used for text classification. Multinomial Naive Bayes specifically classifies observations based on variables with a multinomial distribution (a.k.a. numbers).</p>
+          <h3 id="bernoulli-naive-bayes">Bernoulli Naive Bayes</h3>
+<p>Naive bayes is a bayesian model often used for text classification. Bernoulli Naive Bayes specifically classifies observations based on the presence or absence of a feature in an observation.</p>
 
-<p>Below is a simple text classification using Multinomial Naive Bayes in Lurn.</p>
+<p>Below is a simple text classification using Naive Bayes in Lurn.</p>
 
-<p>Start with some text documents</p>
+<p>Start with some text documents.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'ruby is a great programming language'</span><span class="p">,</span>
-    <span class="s1">'the giants recently won the world series'</span><span class="p">,</span>
-    <span class="s1">'java is a compiled programming language'</span><span class="p">,</span>
-    <span class="s1">'the jets are a football team'</span>
-  <span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s1">'ruby is a great programming language'</span><span class="p">,</span>
+  <span class="s1">'the giants recently won the world series'</span><span class="p">,</span>
+  <span class="s1">'java is a compiled programming language'</span><span class="p">,</span>
+  <span class="s1">'the jets are a football team'</span>
+<span class="p">]</span>
 
-  <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">,</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">,</span><span class="s1">'computers'</span><span class="p">,</span><span class="s1">'sports'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p>These documents need to be converted to a multinomial document model (counts of the words). This can be accomplished easily with the
-<code class="highlighter-rouge">WordCountVectorizer</code>.</p>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vectorizer</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">WordCountVectorizer</span><span class="p">.</span><span class="nf">new</span>
+<p>Convert them to arrays of booleans representing which words they contain (or don’t contain). Lurn provides vectorizers for this purpose.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vectorizer</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">BernoulliVectorizer</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">vectorizer</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
 <span class="n">vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>With documents now in the expected format the model can be trained by supplying the new vectors along with the original class corresponding
-to each document.</p>
+<p>Initialize and train the model</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">NaiveBayes</span><span class="o">::</span><span class="no">MultinomialNaiveBayes</span><span class="p">.</span><span class="nf">new</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">NaiveBayes</span><span class="o">::</span><span class="no">BernoulliNaiveBayes</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">vectors</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The model is ready to classify a new document.</p>
+<p>Classify a new document</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">new_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="nf">transform</span><span class="p">([</span><span class="s1">'programming is fun'</span><span class="p">])</span>
 
@@ -131,14 +129,6 @@ to each document.</p>
 <span class="c1"># get the probability score for the most probable class</span>
 <span class="n">model</span><span class="p">.</span><span class="nf">max_probability</span><span class="p">(</span><span class="n">new_vectors</span><span class="p">.</span><span class="nf">first</span><span class="p">)</span>
 </code></pre></div></div>
-<p>This is of course a contrived example but shows the general API for Multinomial Naive Bayes. To use this model for a more real-world example you
-should have a deeper understanding of naive bayes. Below are some additional resources for learning more.</p>
-
-<h4 id="additional-resources">Additional Resources</h4>
-<ul>
-  <li><a href="/docs/Lurn/NaiveBayes/MultinomialNaiveBayes.html">API Docs</a></li>
-  <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Wikipedia: Naive Bayes Classifiers</a></li>
-</ul>
 
         </article>
       </div>

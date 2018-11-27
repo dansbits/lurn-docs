@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" /><title>Lurn</title>
+<!-- Styles -->
+<link href="/assets/css/theDocs.all.css" rel="stylesheet" />
+<link href="/assets/css/custom.css" rel="stylesheet" />
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400" rel='stylesheet' type='text/css' />
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <header class="site-header">
+  <!-- Top navbar & branding -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Toggle buttons and brand -->
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/assets/images/logo.png" alt="lurn" />
+        </a>
+      </div>
+      <!-- END Toggle buttons and brand -->
+      <!-- Top navbar -->
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" role="banner">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Guides 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/guides/text_processing/bernoulli_vectorizer">Bernoulli Vectorizer</a></li>
+                <li><a href="/guides/classifiers/multinomial_naive_bayes">Multinomial Naive Bayes</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="/docs" target="_blank">
+              <i class="fa fa-book"></i> API Docs
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i> Source Code
+            </a>
+          </li>
+        </ul>
+      </div>
+    <!-- END Top navbar -->
+    </div>
+  </nav>
+  <!-- END Top navbar & branding -->
+</header>
+    <div class="container u-pt-20 u-pb-20">
+      <div class="row">
+        <aside class="col-md-3 col-sm-3 sidebar">
+    <ul class="sidenav dropable sticky">
+      <li><a href="index.html">Overview</a></li>
+      <li>
+        <a href="#" >Classifiers</a>
+        <ul>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" >Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" >Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="active">Regression</a>
+        <ul>
+          <li><a href="/guides/regression/k_nearest_neighbor" class="active">K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Text Processing</a>
+        <ul>
+          <li><a href="/guides/text_processing/bernoulli_vectorizer" >Bernoulli Vectorizer</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </aside>
+        <article class="col-md-9 col-sm-9 main-content" role="main">
+          <h3 id="k-nearest-neighbor-regression">K Nearest Neighbor Regression</h3>
+
+<p>K Nearest Neighbor is among the simplest types of regression models to understand and is therefore a great starting
+point for anyone new to machine learning. The concept is simple, all of the predictors for a training set are
+stored as-is along with their target value (the thing you’re trying to predict). To predict the target value
+of a new observation you simply find the k training observationos that are most like the new data and average
+the target values.</p>
+
+<h4 id="example-predicting-flower-petal-length">Example: Predicting Flower Petal Length</h4>
+
+<h4 id="conceptual-explanation">Conceptual explanation</h4>
+
+<p>The <a href="https://archive.ics.uci.edu/ml/datasets/iris">Iris Data Set</a> provides data from a sample of Iris plants. Variables
+included are the length and with of each plant’s petal and sepal (the leafy supporting structure at the base of the
+flower). This is example will attempt to use this data to fill in missing data for a newly observed plant.</p>
+
+<p>The plot below shows the sepal length and width for all plants in the data set.</p>
+
+<iframe id="datawrapper-chart-TX66t" src="//datawrapper.dwcdn.net/TX66t/4/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="500"></iframe>
+<script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["TX66t"]={},window.datawrapper["TX66t"].embedDeltas={"100":525,"200":525,"300":500,"400":500,"500":500,"700":500,"800":500,"900":500,"1000":500},window.datawrapper["TX66t"].iframe=document.getElementById("datawrapper-chart-TX66t"),window.datawrapper["TX66t"].iframe.style.height=window.datawrapper["TX66t"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["TX66t"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("TX66t"==b)window.datawrapper["TX66t"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+
+<p>Using this as a training set, KNN Regression can be applied to predict the petal length of new plants. Suppose a new 
+observation is found with a sepal length of 6.1 and sepal width 3.3. To estimate its petal length with knn regression 
+(with k = 5) find the 5 training observations that are most similar to the newly observed plant and average their petal 
+lengths. The plot below shows the new observation in red with its 5 nearest neighbors highlighted in green. Averaging 
+the neighbors’ petal lengths, the estimated value for the new observation would be 
+(5.6 + 6.0 + 5.4 + 4.5 + 4.8) / 5 = 5.26.</p>
+
+<iframe id="datawrapper-chart-ex8kB" src="//datawrapper.dwcdn.net/ex8kB/1/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="500"></iframe>
+<script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["ex8kB"]={},window.datawrapper["ex8kB"].embedDeltas={"100":575,"200":525,"300":525,"400":500,"500":500,"700":500,"800":500,"900":500,"1000":500},window.datawrapper["ex8kB"].iframe=document.getElementById("datawrapper-chart-ex8kB"),window.datawrapper["ex8kB"].iframe.style.height=window.datawrapper["ex8kB"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["ex8kB"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("ex8kB"==b)window.datawrapper["ex8kB"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+
+<p>Most real world examples will involve more than two predictors and are more difficult to visualize but the concept is 
+the same.</p>
+
+<h4 id="using-lurns-knn-regression">Using lurn’s KNN Regression</h4>
+<p>To apply lurn’s KNN regression, download the <a href="https://archive.ics.uci.edu/ml/datasets/iris">Iris Data Set</a>. Fire up
+a ruby console or Jupyter Notebook and load the data into a Daru data frame.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># replace this with the path you downloaded the data to</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">"PATH_TO_IRIS_DATA"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sepal_length"</span><span class="p">,</span> <span class="s2">"sepal_width"</span><span class="p">,</span> <span class="s2">"petal_length"</span><span class="p">,</span> <span class="s2">"petal_width"</span><span class="p">,</span> <span class="s2">"class"</span><span class="p">]</span>
+<span class="n">iris_plants</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="p">.</span><span class="nf">from_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now instantaite a new instance of <code class="highlighter-rouge">Lurn::Neighbors::KNNRegression</code> with k = 5, and train (fit) the model with the predictors and
+target variable.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">predictors</span> <span class="o">=</span> <span class="n">iris_plants</span><span class="p">[</span><span class="ss">:sepal_length</span><span class="p">,</span> <span class="ss">:sepal_width</span><span class="p">].</span><span class="nf">map_rows</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="n">row</span><span class="p">.</span><span class="nf">to_a</span> <span class="p">}</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">iris_plants</span><span class="p">[</span><span class="ss">:petal_length</span><span class="p">].</span><span class="nf">to_a</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="no">Lurn</span><span class="o">::</span><span class="no">Neighbors</span><span class="o">::</span><span class="no">KNNRegression</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The model is now ready to predict the petal length of new observations. Using the example before, call <code class="highlighter-rouge">predict</code> on the
+model with sepal length of 6.1 and sepal width of 3.3.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">new_plant</span> <span class="o">=</span> <span class="p">[</span><span class="mf">6.6</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">]</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">new_plant</span><span class="p">)</span>
+</code></pre></div></div>
+
+        </article>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="container">
+    <a id="scroll-up">
+      <i class="fa fa-angle-up"></i></a>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <p>Copyright © 2018. All right reserved</p>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <ul class="footer-menu">
+          <li>
+            <a href="https://www.github.com/dansbits/lurn" target="_blank">
+              <i class="fa fa-github fa-3"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/theDocs.all.js"></script>
+  </body>
+</html>

@@ -61,7 +61,36 @@
   <!-- END Top navbar & branding -->
 </header>
     <div class="container u-pt-20 u-pb-20">
-      <h2 id="bernoulli-vectorizer-word-presence-vectorizer">Bernoulli Vectorizer (word presence vectorizer)</h2>
+      <div class="row">
+        <aside class="col-md-3 col-sm-3 sidebar">
+    <ul class="sidenav dropable sticky">
+      <li><a href="index.html">Overview</a></li>
+      <li>
+        <a href="#" >Classifiers</a>
+        <ul>
+          <li><a href="/guides/classifiers/bernoulli_naive_bayes" >Bernoulli Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/multinomial_naive_bayes" >Multinomial Naive Bayes</a></li>
+          <li><a href="/guides/classifiers/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" >Regression</a>
+        <ul>
+          <li><a href="/guides/regression/k_nearest_neighbor" >K Nearest Neighbor</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="active">Text Processing</a>
+        <ul>
+          <li><a href="/guides/text_processing/bernoulli_vectorizer" class="active">Bernoulli Vectorizer</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </aside>
+        <article class="col-md-9 col-sm-9 main-content" role="main">
+          <h2 id="bernoulli-vectorizer-word-presence-vectorizer">Bernoulli Vectorizer (word presence vectorizer)</h2>
 
 <p>A bernoulli document model is one that represents a piece of text as an array of boolean values. Each boolean represents the presence (true) or absence (false) of a word in the document.</p>
 
@@ -92,6 +121,8 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Lurn</span><span class="o">::</span><span class="no">BernoulliVectorizer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">strip_stopwords: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">min_df: </span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
+        </article>
+      </div>
     </div>
     <footer class="site-footer">
   <div class="container">
