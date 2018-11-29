@@ -4,8 +4,9 @@ layout: guides
 active_dropdown: classifiers
 active_guide: bernoulli_nb
 ---
-
-### Bernoulli Naive Bayes
+<header>
+  <h2>Bernoulli Naive Bayes</h2>
+</header>
 Naive bayes is a bayesian model often used for text classification. Bernoulli Naive Bayes specifically classifies observations based on the presence or absence of a feature in an observation.
 
 Below is a simple text classification using Naive Bayes in Lurn.

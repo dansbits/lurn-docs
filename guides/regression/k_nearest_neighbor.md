@@ -8,17 +8,17 @@ active_dropdown: regression
 active_guide: knn_regression
 ---
 
-### K Nearest Neighbor Regression
+<header>
+  <h2>K Nearest Neighbor Regression</h2>
+</header>
 
-K Nearest Neighbor is among the simplest types of regression models to understand and is therefore a great starting
+K Nearest Neighbor (KNN) is among the simplest types of regression models to understand and is therefore a great starting
 point for anyone new to machine learning. The concept is simple, all of the predictors for a training set are
 stored as-is along with their target value (the thing you're trying to predict). To predict the target value
 of a new observation you simply find the k training observationos that are most like the new data and average
 the target values.
 
-#### Example: Predicting Flower Petal Length
-
-#### Conceptual explanation
+#### How KNN Regression Works
 
 The [Iris Data Set](https://archive.ics.uci.edu/ml/datasets/iris) provides data from a sample of Iris plants. Variables
 included are the length and with of each plant's petal and sepal (the leafy supporting structure at the base of the

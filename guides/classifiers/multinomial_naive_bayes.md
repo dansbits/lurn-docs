@@ -8,7 +8,9 @@ active_dropdown: classifiers
 active_guide: multinomial_nb
 ---
 
-### Multinomial Naive Bayes
+<header>
+  <h2>Multinomial Naive Bayes</h2>
+</header>
 Naive bayes is a bayesian model often used for text classification. Multinomial Naive Bayes specifically classifies observations based on variables with a multinomial distribution (a.k.a. numbers).
 
 Below is a simple text classification using Multinomial Naive Bayes in Lurn.

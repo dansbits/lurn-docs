@@ -8,7 +8,10 @@ active_dropdown: classifiers
 active_guide: knn_classifier
 ---
 
-### K Nearest Neighbor Classifier
+<header>
+  <h2>K Nearest Neighbor Classifier</h2>
+</header>
+
 K Nearest Neighbor (KNN) Classification is one of the simplest forms of classification
 in the machine learning toolbox. Training data is stored on the model and all
 computation is deferred until the time of prediction. When a new observation

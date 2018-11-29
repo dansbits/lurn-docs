@@ -8,7 +8,9 @@ active_dropdown: text_processing
 active_guide: bernoulli_vec
 ---
 
-## Bernoulli Vectorizer (word presence vectorizer)
+<header>
+  <h2>Bernoulli Vectorizer (word presence vectorizer)</h2>
+</header>
 
 A bernoulli document model is one that represents a piece of text as an array of boolean values. Each boolean represents the presence (true) or absence (false) of a word in the document.
 
